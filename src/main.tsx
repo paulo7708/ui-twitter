@@ -3,12 +3,13 @@ import ReactDOM from "react-dom/client";
 import "./global.css";
 import twitterLogo from "./assets/logo-twitter.svg";
 import { House, Hash, Bell, Envelope, BookmarkSimple, FileText, User, DotsThreeCircle, Sparkle} from "phosphor-react";
+import { Tweet } from "./components/Tweet";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <div className="layout">
       <aside className="sidebar">
-        <img className="logo" src={twitterLogo} alt="logo" srcset="" />
+        <img className="logo" src={twitterLogo} alt="logo" srcSet="" />
 
         <nav className="main-navigation">
           <a className="active" href="">
@@ -55,6 +56,13 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
             </label>
             <button type="submit">Tweet</button>
           </form>
+
+          <div className="separator"></div>
+
+          <Tweet />
+          <Tweet />
+          <Tweet />
+          <Tweet />
         </main>
       </div>
     </div>
