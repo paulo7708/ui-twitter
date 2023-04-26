@@ -1,53 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./global.css";
-import twitterLogo from "./assets/logo-twitter.svg";
-import { House, Hash, Bell, Envelope, BookmarkSimple, FileText, User, DotsThreeCircle, Sparkle} from "phosphor-react";
+
 import { Tweet } from "./components/Tweet";
+import { Sidebar } from "./components/sidebar";
+import { Header } from "./components/header";
+import { Separator } from "./components/separator";
+
+const tweets = ["Meu primeito Tweet", "Deu certo", "Teste 3"];
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <div className="layout">
-      <aside className="sidebar">
-        <img className="logo" src={twitterLogo} alt="logo" srcSet="" />
-
-        <nav className="main-navigation">
-          <a className="active" href="">
-            <House weight="fill"/>
-            Home
-          </a>
-          <a href="">
-            <Hash />
-            Explore</a>
-          <a href="">
-            <Bell />
-            Notifications</a>
-          <a href="">
-            <Envelope />
-            Messages</a>
-          <a href="">
-            <BookmarkSimple />
-            Bookmarks</a>
-          <a href="">
-            <FileText />
-            Lists</a>
-          <a href="">
-            <User />
-            Profile</a>
-          <a href="">
-            <DotsThreeCircle />
-            More</a>
-        </nav>
-
-        <button className="new-tweet">Tweet</button>
-      </aside>
+      <Sidebar />
 
       <div className="content">
         <main className="timeline">
-          <div className="timeline-header">
-            Home
-            <Sparkle />
-          </div>
+          <Header title="Home" />
 
           <form className="new-tweet-form">
             <label htmlFor="tweet">
@@ -57,12 +26,13 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
             <button type="submit">Tweet</button>
           </form>
 
-          <div className="separator"></div>
+          <Separator />
 
-          <Tweet />
-          <Tweet />
-          <Tweet />
-          <Tweet />
+          <Tweet content="tweet1" />
+
+          {tweets.map((tweet: string) => {
+            return <Tweet key={tweet} content={tweet} />;
+          })}
         </main>
       </div>
     </div>
